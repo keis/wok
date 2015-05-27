@@ -84,7 +84,7 @@ class Page(object):
         page.path = path
         page.filename = os.path.basename(path)
 
-        with open(path, 'rU') as f:
+        with open(path, 'rb') as f:
             page.original = f.read().decode('utf-8')
             splits = page.original.split('\n---\n')
 
@@ -489,7 +489,7 @@ class Page(object):
         logging.info('writing to {0}'.format(base_path))
 
         logging.debug('Writing {0} to {1}'.format(self.meta['slug'], base_path))
-        f = open(base_path, 'w')
+        f = open(base_path, 'wb')
         f.write(self.rendered.encode('utf-8'))
         f.close()
 

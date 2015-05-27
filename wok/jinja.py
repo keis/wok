@@ -33,7 +33,7 @@ class GlobFileLoader(FileSystemLoader):
                 continue
             filename = filenames[0]
 
-            with open(filename) as f:
+            with open(filename, 'rb') as f:
                 contents = f.read().decode(self.encoding)
 
             mtime = os.path.getmtime(filename)
